@@ -3,5 +3,5 @@ from app.viewsets import PlaylistViewSet, SongViewSet
 
 router = routers.DefaultRouter()
 
-router.register(r’app’, PlaylistViewSet)
-router.register(r’app’, SongViewSet)
+router.register('app', PlaylistViewSet)
+router.register('app', SongViewSet)
