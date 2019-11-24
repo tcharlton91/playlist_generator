@@ -20,5 +20,5 @@ from .routers import router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('', include('playlist_generator.app.urls')),
+    path('', include('app.urls')),
 ]

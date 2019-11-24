@@ -1,5 +1,5 @@
 from rest_framework import routers
-from .app.viewsets import PlaylistViewSet, SongViewSet
+from app.viewsets import PlaylistViewSet, SongViewSet
 
 router = routers.DefaultRouter()
 
