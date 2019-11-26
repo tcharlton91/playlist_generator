@@ -2,7 +2,7 @@ import requests
 
 from enum import Enum
 
-class lastFMStation(Enum)
+class lastFMStation(Enum):
     LIBRARY = 1
     MIX = 2
     RECOMMENDED = 3
