@@ -16,7 +16,7 @@ def index(request):
     <th>Recommended</th>
     </tr>
     <tr>
-    <td>'''
+    <td>''' +
     '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.LIBRARY).items()]) +
     '</td><td>' +
     '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.MIX).items()]) +
