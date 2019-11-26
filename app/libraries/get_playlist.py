@@ -16,10 +16,4 @@ urls = {
 def get_last_fm_recommendations(station):
     req = requests.get(urls[station])
 
-    resp = {pl_item['artists'][0]['name']:pl_item['name'] for pl_item in req.json()['playlist']}
-    #resp = {}
-    #for pl_item in req.json()['playlist']:
-    #    #print(f"Artist: {pl_item['artists'][0]['name']}, title: {pl_item['name']}")
-    #    resp[pl_item['artists'][0]['name']] = pl_item['name']
-
-    return resp
+    return {pl_item['artists'][0]['name']:pl_item['name'] for pl_item in req.json()['playlist']}
