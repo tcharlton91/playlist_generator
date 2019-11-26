@@ -17,11 +17,11 @@ def index(request):
     </tr>
     <tr>
     <td>'''
-    '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.LIBRARY).items()])
-    '</td><td>'
-    '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.MIX).items()])
-    '</td><td>'
-    '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.RECOMMENDED).items()])
+    '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.LIBRARY).items()]) +
+    '</td><td>' +
+    '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.MIX).items()]) +
+    '</td><td>' +
+    '<br >'.join([str(x) for x in get_last_fm_recommendations(lastFMStation.RECOMMENDED).items()]) +
     '''</td>
     </tr>
     </table>
