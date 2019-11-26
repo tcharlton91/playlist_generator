@@ -11,9 +11,9 @@ def index(request):
     <body>
     <table>
     <tr>
-    <td>Library</td>
-    <td>Mix</td>
-    <td>Recommended</td>
+    <th>Library</th>
+    <th>Mix</th>
+    <th>Recommended</th>
     </tr>
     <tr>
     <td>'''
