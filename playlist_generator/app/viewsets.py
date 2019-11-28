@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Song, Playlist
-from .serializers import SongSerializer, PlaylistSerializer
+from playlist_generator.app.models import Song, Playlist
+from playlist_generator.app.serializers import SongSerializer, PlaylistSerializer
 
 class SongViewSet(viewsets.ModelViewSet):
     queryset = Song.objects.all()
