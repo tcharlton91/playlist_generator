@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('app', TemplateView.as_view(template_name='index.html')),
-    path('', include('app.urls'))
+    path('', include('playlist_generator.app.urls'))
 ]
