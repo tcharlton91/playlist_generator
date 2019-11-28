@@ -56,7 +56,7 @@ ROOT_URLCONF = 'playlist_generator.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, ‘dist’)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, 'dist/static'),
 ]
 
 WSGI_APPLICATION = 'playlist_generator.wsgi.application'

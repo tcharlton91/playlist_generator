@@ -5,7 +5,7 @@ from .libraries.get_playlist import get_last_fm_recommendations, lastFMStation
 
 # Create your views here.
 
-def index(request):
+def basicView(request):
     return HttpResponse('''
     <head></head>
     <body>
