@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'playlist_generator.wsgi.application'
 #    }
 #}
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, engine='django.db.backends.postgresql')
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
