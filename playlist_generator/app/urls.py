@@ -4,5 +4,8 @@ from . import views
 
 urlpatterns = [
         path('basic', views.basicView),
+        path('library', views.libraryView),
+        path('mix', views.mixView),
+        path('recommended', views.recommendedView),
         path('', views.basicView),
         ]

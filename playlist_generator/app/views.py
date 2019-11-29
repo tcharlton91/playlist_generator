@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from .libraries.get_playlist import get_last_fm_recommendations, lastFMStation
 
@@ -27,3 +27,12 @@ def basicView(request):
     </table>
     </body>'''
     )
+
+def libraryView(request):
+  return JsonResponse(get_last_fm_recommendations(lastFMStation.LIBRARY))
+
+def mixView(request):
+  return JsonResponse(get_last_fm_recommendations(lastFMStation.MIX))
+
+def recommendedView(request):
+  return JsonResponse(get_last_fm_recommendations(lastFMStation.RECOMMENDED))
