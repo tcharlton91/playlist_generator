@@ -1,8 +1,8 @@
 {% extends 'index.html' %}
 {% block content %}
 <ul>
-  {% for artistTitlePair in Library %}
-    <li> {{ artistTitlePair[0] }}: {{ artistTitlePair[1] }} </li>
+  {% for artist, title in Library.items %}
+    <li> {{ artist }}: {{ title }} </li>
   {% endfor %}
 </ul>
 {% block %}
