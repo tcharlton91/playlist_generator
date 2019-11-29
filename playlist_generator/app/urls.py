@@ -7,6 +7,7 @@ urlpatterns = [
         path('library', views.libraryView),
         path('libraryTemp', views.libraryTemplateView),
         path('mix', views.mixView),
+        path('mixTemp', views.mixTemplateView),
         path('recommended', views.recommendedView),
         path('', views.basicView),
         ]
