@@ -1,0 +1,8 @@
+{% extends 'index.html' %}
+{% libraryTemplate content %}
+<ul>
+  {% for artistTitlePair in Library %}
+    <li> {{ artistTitlePair[0] }}: {{ artistTitlePair[1] }} </li>
+  {% endfor %}
+</ul>
+{% libraryTemplate %}

@@ -36,3 +36,9 @@ def mixView(request):
 
 def recommendedView(request):
   return JsonResponse(get_last_fm_recommendations(lastFMStation.RECOMMENDED))
+
+def libraryTemplateView(request):
+
+    context = {'Library': get_last_fm_recommendations(lastFMStation.LIBRARY)}
+
+    return render(request, 'libraryTemplate.html', context)
