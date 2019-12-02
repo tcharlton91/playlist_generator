@@ -1,9 +1,7 @@
-{% extends 'base.html' %}
-
 {% block PlaylistGenerator %}
 <div class="PlaylistGenerator">
   <h1>Playlist Generator</h1>
-  {% block LibraryItems %}{% endblock LibraryItems %}
-  {% block Accounts %}{% endblock Accounts %}
+  {% include "sources.html" %}
+  {% include "accounts.html" %}
 </div>
 {% endblock PlaylistGenerator %}

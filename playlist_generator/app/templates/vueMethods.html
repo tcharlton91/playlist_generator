@@ -1,0 +1,39 @@
+<script type=”text/javascript”>
+  new Vue({
+    el: ‘#starting’,
+    delimiters: [‘${‘,’}’],
+    data: {
+      playlist: [],
+      playListType: '',
+      lastFmUsername: '',
+      currentSong: ''
+      loading: false,
+      message: null,
+    },
+  mounted: function() {
+  },
+  methods: {
+    addSongToPlaylist() {
+      const newId = Math.max.apply(null, this.playlist.map(t => t.id)) + 1;
+      this.playlist.push({ id: newId, text: this.currentSong});
+      this.currentSong = '';
+    }
+    findLastFMUser() {
+      let api_url = 'last.fm/user/';
+      if(this.lastFMUsername!==''||this.lastFMUsername!==null) {
+        api_url = `last.fm/user//${this.lastFMUsername}`
+      }
+      this.loading = true;
+      this.$http.get(api_url)
+        .then((response) => {
+          this.loading = false;
+          console.log(response);
+        })
+        .catch((err) => {
+          this.loading = false;
+          console.log(err);
+        })
+    }
+  }
+});
+</script>
