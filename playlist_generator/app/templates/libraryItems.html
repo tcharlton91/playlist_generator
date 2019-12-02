@@ -1,7 +1,7 @@
 {% block LibraryItems %}
 <div class="LibraryItems">
   {% for artist, title in Library.items %}
-    {{ artist }}: {{ title }}
+    {{ artist }}: {{ title }} <br>
   {% endfor %}
 </div>
 {% endblock LibraryItems %}
