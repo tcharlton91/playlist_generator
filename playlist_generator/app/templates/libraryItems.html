@@ -1,10 +1,8 @@
 {% block LibraryItems %}
 <div class="LibraryItems">
-  <ul>
-    {% for artist, title in Library.items %}
-      <li> {{ artist }}: {{ title }} </li>
-    {% endfor %}
-  </ul>
+  {% for artist, title in Library.items %}
+    {{ artist }}: {{ title }}
+  {% endfor %}
 </div>
 {% endblock LibraryItems %}
 
