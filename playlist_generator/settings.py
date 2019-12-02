@@ -56,9 +56,17 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'playlist_generator.urls'
 
 TEMPLATES = [
+      {
+      'BACKEND': 'django.template.backends.jinja2.Jinja2',
+      'DIRS': [],
+      'APP_DIRS': True,
+      'OPTIONS': {
+        'environment': 'playlist_generator.jinja2.environment'
+      },
+    },
     {
-        'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
