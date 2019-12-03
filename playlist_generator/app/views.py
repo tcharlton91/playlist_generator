@@ -51,9 +51,11 @@ def mixTemplateView(request):
 
 def baseView(request):
 
-    context = {'Library': get_last_fm_recommendations(lastFMStation.LIBRARY),
-               'Mix': get_last_fm_recommendations(lastFMStation.MIX),
-               'Recommended': get_last_fm_recommendations(lastFMStation.RECOMMENDED),
+    lastFMUsername = request.GET.get('lastFMUsername')
+
+    context = {'Library': get_last_fm_recommendations(lastFMStation.LIBRARY, lastFMUsername),
+               'Mix': get_last_fm_recommendations(lastFMStation.MIX, lastFMUsername),
+               'Recommended': get_last_fm_recommendations(lastFMStation.RECOMMENDED, lastFMUsername),
               }
 
     return render(request, 'base.html', context)

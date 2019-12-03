@@ -1,7 +1,9 @@
 {% block lastFmPlaylistType %}
 <div>
-  <p>LastFM User name:
-    <input type="text" v-model="lastFMUsername" v-on:keyup.enter="findLastFMUser"/>
-  </p>
+  <form action="/" method="GET">
+    <label for="lasFMUsername"> User name:</label>
+    <input type="text" name="lasFMUsername" id="lastFMUsername"/><br />
+  </form>
+  <p id="demo"></p>
 </div>
 {% endblock lastFmPlaylistType %}

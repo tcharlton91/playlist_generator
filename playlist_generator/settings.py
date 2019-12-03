@@ -83,7 +83,11 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "playlist_generator/static")
+    ]
+
+STATIC_URL = '/playlist_generator/static/'
 
 WSGI_APPLICATION = 'playlist_generator.wsgi.application'
 
