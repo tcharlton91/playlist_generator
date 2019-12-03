@@ -1,23 +1,23 @@
 {% block LibraryItems %}
 <div class="LibraryItems tab">
-  <button class="tablinks active" onclick="openTab(event, 'Library')" id="defaultTab">Library</button>
-  <button class="tablinks" onclick="openTab(event, 'Mix')">Mix</button>
-  <button class="tablinks" onclick="openTab(event, 'Recommended')">Recommended</button>
+  <button class="LibraryItems tablinks active" onclick="openTab(event, 'Library', 'LibraryItems')" id="defaultTab">Library</button>
+  <button class="LibraryItems tablinks" onclick="openTab(event, 'Mix', 'LibraryItems')">Mix</button>
+  <button class="LibraryItems tablinks" onclick="openTab(event, 'Recommended', 'LibraryItems')">Recommended</button>
 </div>
 
-<div id="Library" class="tabcontent">
+<div id="Library" class="LibraryItems tabcontent">
   {% for artist, title in Library.items %}
     {{ artist }}: {{ title }} <br>
   {% endfor %}
 </div>
 
-<div id="Mix" class="tabcontent">
+<div id="Mix" class="LibraryItems tabcontent">
   {% for artist, title in Mix.items %}
     {{ artist }}: {{ title }} <br>
   {% endfor %}
 </div>
 
-<div id="Recommended" class="tabcontent">
+<div id="Recommended" class="LibraryItems tabcontent">
   {% for artist, title in Recommended.items %}
     {{ artist }}: {{ title }} <br>
   {% endfor %}
