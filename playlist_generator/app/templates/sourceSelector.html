@@ -1,14 +1,12 @@
 {% block SourceItems %}
 <div class="SourceItems tab">
-  <button class="SourceItems tablinks active" onclick="openTab(event, 'LastFM', 'SourceItems')" id="defaultTab">LastFM</button>
+  <button class="SourceItems tablinks active" onclick="openTab(event, 'LastFM', 'SourceItems')">LastFM</button>
   <button class="SourceItems tablinks" onclick="openTab(event, 'Something Else', 'SourceItems')">Something Else</button>
   <button class="SourceItems tablinks" onclick="openTab(event, 'Another Thing', 'SourceItems')">Another Thing</button>
 </div>
 
-<div id="LastFM" class="SourceItems tabcontent">
-  <h3>LastFM Based Playlists</h3>
-  {% include "lastFMName.html" %}
-  {% include "libraryItems.html" %}
+<div id="LastFM" class="SourceItems active tabcontent">
+  {% include "LastFM/LastFM.html" %}
 </div>
 
 <div id="Something Else" class="SourceItems tabcontent">

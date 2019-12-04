@@ -15,7 +15,9 @@ urls = {
 
 def get_last_fm_recommendations(station, username=''):
 
-    if username == '':
+    print("Using Last FM username: {0}".format(username))
+
+    if not username:
         return {}
 
     req = requests.get(urls[station].format(username))
