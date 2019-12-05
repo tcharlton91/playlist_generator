@@ -22,4 +22,10 @@ def get_last_fm_recommendations(station, username=''):
 
     req = requests.get(urls[station].format(username))
 
+    # Need to check that req to json will work
+    try:
+        blah = req.json()
+    except:
+        return {}
+
     return {pl_item['artists'][0]['name']:pl_item['name'] for pl_item in req.json()['playlist']}
