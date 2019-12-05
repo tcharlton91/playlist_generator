@@ -1,27 +1,42 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <style>
+
   body {
     margin: 0;
     padding: 0;
+    --main-primary-colour: #2a0f66; /* (Blue/Purple) */
+    --main-secondary-colour: #91B9D6; /* (light Blue 2) */
+    --accent-primary-colour: #8E99CE; /* (light Blue 1) */
+    --accent-secondary-colour: #cbd0e8; /* (v. Pale Blue) */
     font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-    background: linear-gradient(#2a0f66, #91B9D6); # also #2a0f66 (Blue/Purple) & 8E99CE (light Blue 1) & 91B9D6 (light Blue 2) & #cbd0e8 (v. Pale Blue)
-    height: auto;
-    min-height: 100vh;
-    display: flex;
+    background: linear-gradient(var(--main-primary-colour), var(--main-secondary-colour));
+    /*display: flex; */
     justify-content: center;
     align-items: center;
+  }
+
+  .cap {
+      color: var(--accent-primary-colour);
+      /* text-shadow: 2px 1px 1px var(--accent-primary-colour); */
+      font-weight: bold;
+      font-size: 150%;
+  }
+
+  .non-cap {
+      color: var(--accent-primary-colour);
+      /* text-shadow: 2px 1px 1px var(--main-primary-colour); */
+      /* font-weight: bold; */
+      fot-variant: small-caps;
   }
 
   .PlaylistGenerator {
     text-align: center;
     border: 1px solid white;
-    width: 90vw;
+    width: auto;
     height: auto;
     box-shadow: 2px 3px 15px rgba(0, 0, 0, 0.5);
     background: #f6f6f6;
-    padding-bottom: 60px;
-    margin: 40px auto;
   }
 
   .playlistSources {
@@ -39,7 +54,7 @@
   }
 
   .lastFMPlaylistType {
-    padding-bottom: 5px;
+    /*padding-bottom: 5px;*/
   }
 
   /* Style the tab */
