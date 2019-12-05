@@ -1,19 +1,29 @@
 {% block SourceItems %}
-<div class="SourceItems tab">
-  <button class="SourceItems tablinks active" onclick="openTab(event, 'LastFM', 'SourceItems')">LastFM</button>
-  <button class="SourceItems tablinks" onclick="openTab(event, 'Something Else', 'SourceItems')">Something Else</button>
-  <button class="SourceItems tablinks" onclick="openTab(event, 'Another Thing', 'SourceItems')">Another Thing</button>
-</div>
+<div class="container col-12">
+  <ul class="SourceItems nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href='#LastFM'>LastFM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href='#SomethingElse'>Something Else</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href='#AnotherThing'>Another Thing</a>
+    </li>
+  </ul>
 
-<div id="LastFM" class="SourceItems active tabcontent">
-  {% include "LastFM/LastFM.html" %}
-</div>
+  <div class="tab-content">
+    <div id="LastFM" class="container tab-pane active">
+        {% include "LastFM/LastFM.html" %}
+    </div>
 
-<div id="Something Else" class="SourceItems tabcontent">
-  <p>Implement Something else</p>
-</div>
+    <div id="SomethingElse" class="container tab-pane fade">
+        <p>Implement Something else</p>
+    </div>
 
-<div id="Another Thing" class="SourceItems tabcontent">
-  <p>Do Another thing</p>
+    <div id="AnotherThing" class="container tab-pane fade">
+        <p>Do Another thing</p>
+    </div>
+  </div>
 </div>
 {% endblock SourceItems %}

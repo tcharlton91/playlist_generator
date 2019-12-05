@@ -2,28 +2,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
-  function openTab(evt, tabName, tabTag) {
-    // Declare all variables
-    var i, tabcontent, tablinks, tabTags;
-
-    // Only operate on tabs with this tag
-    tabTags = document.getElementsByClassName(tabTag);
-    for (i = 0; i < tabTags.length; i++) {
-        // Get all elements with class="tabcontent" and hide them
-        if (tabTags[i].className.includes("tabcontent")) {
-            tabTags[i].style.display = "none";
-        }
-        // Get all elements with class="tablinks" and remove the class "active"
-        if (tabTags[i].className.includes("tablinks")) {
-            tabTags[i].className = tabTags[i].className.replace(" active", "");
-        }
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
   
 </script>
