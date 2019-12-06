@@ -1,19 +1,26 @@
 {% block PlaylistGenerator %}
 <div class="row">
-    <div class="col-sm-0 col-md-1 col-lg-2"></div>
-    <div class="col-sm-12 col-md-10 col-lg-8">
-        <h1>
-            <span class="cap">P</span><span class="non-cap font-weight-light">laylist</span> <span class="cap">G</span><span class="non-cap font-weight-light">enerator</span>
+    <div class="col-1 col-lg-2"></div>
+    <div class="col-5 col-lg-4">
+        <h1 class="display-4">
+            <span class="cap">P</span><span class="non-cap">laylist</span>
         </h1>
     </div>
-    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    <div class="col-5 col-lg-4">
+        <h1 class="display-4 text-right">
+            <span class="cap">G</span><span class="non-cap">enerator</span>
+        </h1>
+    </div>
+    <div class="col-1 col-lg-2"></div>
 </div>
 <div class="row">
-    <div class="col-sm-0 col-md-1 col-lg-2"></div>
-    <div class="col-sm-12 col-md-10 col-lg-8 PlaylistGenerator">
+    <div class="col-1 col-lg-2"></div>
+    <div class="col-10 col-lg-8 PlaylistGenerator">
+      <div class="row no-gutters">
         {% include "sources.html" %}
         {% include "accounts.html" %}
+      </div>
     </div>
-    <div class="col-sm-0 col-md-1 col-lg-2"></div>
+    <div class="col-1 col-lg-2"></div>
 </div>
 {% endblock PlaylistGenerator %}

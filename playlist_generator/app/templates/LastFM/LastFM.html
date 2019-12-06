@@ -1,3 +1,5 @@
-<h3>LastFM Based Playlists</h3>
-{% include "LastFM/usernameForm.html" %}
-{% include "LastFM/libraryItems.html" %}
+{% block LastFM %}
+  <h1 class="display-4">LastFM Playlists</h1>
+  {% include "LastFM/usernameForm.html" %}
+  {% include "LastFM/libraryItems.html" %}
+{% endblock LastFM %}

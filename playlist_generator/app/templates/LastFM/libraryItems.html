@@ -1,35 +1,41 @@
 {% block LibraryItems %}
 
-<div class="container col-12">
-  <ul class="LibraryItems nav nav-pills" role="tablist">
+<div class="container p-0">
+  <ul class="LibraryItems nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-toggle="pill" href='#Library'>Library</a>
+      <a class="nav-link active" data-toggle="tab" href='#Library'>Library</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href='#Mix'>Mix</a>
+      <a class="nav-link" data-toggle="tab" href='#Mix'>Mix</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href='#Recommended'>Recommended</a>
+      <a class="nav-link" data-toggle="tab" href='#Recommended'>Recommended</a>
     </li>
   </ul>
 
-  <div class="tab-content">
-    <div id="Library" class="LibraryItem container tab-pane active">
-      {% for artist, title in Library.items %}
-        {{ artist }}: {{ title }} <br>
-      {% endfor %}
+  <div class="tab-content container p-0">
+    <div id="Library" class="LibraryItem container tab-pane active p-0">
+      <table class="table"><tbody>
+        {% for artist, title in Library.items %}
+          <tr><td>{{ artist }}</td><td>{{ title }}</td></tr>
+        {% endfor %}
+      </tbody></table>
     </div>
 
-    <div id="Mix" class="LibraryItem container tab-pane fade">
-      {% for artist, title in Mix.items %}
-        {{ artist }}: {{ title }} <br>
-      {% endfor %}
+    <div id="Mix" class="LibraryItem container tab-pane fade p-0">
+      <table class="table"><tbody>
+        {% for artist, title in Mix.items %}
+          <tr><td>{{ artist }}</td><td>{{ title }}</td></tr>
+        {% endfor %}
+      </tbody></table>
     </div>
 
-    <div id="Recommended" class="LibraryItem container tab-pane fade">
-      {% for artist, title in Recommended.items %}
-        {{ artist }}: {{ title }} <br>
-      {% endfor %}
+    <div id="Recommended" class="LibraryItem container tab-pane fade p-0">
+      <table class="table"><tbody>
+        {% for artist, title in Recommended.items %}
+          <tr><td>{{ artist }}</td><td>{{ title }}</td></tr>
+        {% endfor %}
+      </tbody></table>
     </div>
   </div>
 </div>
