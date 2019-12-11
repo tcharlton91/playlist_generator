@@ -1,5 +1,31 @@
-{% block playlistSources %}
-<div class="playlistSources col-sm-12 col-xl-6 no-gutters">
-  {% include "sourceSelector.html" %}
+{% block sources %}
+<div class="sources col-sm-12 col-xl-6 no-gutters">
+  <div class="container col-12">
+    <ul class="SourceItems nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href='#LastFM'>LastFM</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href='#SomethingElse'>Something Else</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href='#AnotherThing'>Another Thing</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="LastFM" class="container tab-pane active p-0">
+        {% include "LastFM/LastFM.html" %}
+      </div>
+
+      <div id="SomethingElse" class="container tab-pane fade">
+        <p>Implement Something else</p>
+      </div>
+
+      <div id="AnotherThing" class="container tab-pane fade">
+        <p>Do Another thing</p>
+      </div>
+    </div>
+  </div>
 </div>
-{% endblock playlistSources %}
+{% endblock sources %}
