@@ -1,20 +1,25 @@
 {% block GMusic %}
-<div class="GMusicAuth">
-  <br />
-  <div>
-    <a target="_blank" href="https://accounts.google.com/o/oauth2/v2/auth?client_id=228293309116.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fskyjam&access_type=offline&response_type=code">Go to this link to get your Google Music Access code</a>
-  </div>
-  <br />
-  <form onSubmit="storeValues(this)">
-    <div class="form-group">
-      <input class="form-control" type="text" placeholder="Paste the Google Music Access code here" name="gmusicAuthCode" id="gmusicAuthCode"/>
+<div class="GMusic row">
+  <div class="GMusicAuth col-12">
+
+    <div>
+      <a target="_blank" href="https://accounts.google.com/o/oauth2/v2/auth?client_id=228293309116.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fskyjam&access_type=offline&response_type=code">Go to this link to get your Google Music Access code</a>
     </div>
-  </form>
-</div>
-<div class="GMusic">
-  <div class="spinner-border text-primary"></div>
-  <div class="GMusicRefreshAuth">
-    <button onClick="deleteGMusicAuthCode()" type="button" class="btn btn-link">Need a new Google Music Auth Code?</button>
+
+    <form onSubmit="storeValues(this)">
+      <div class="form-group">
+        <input class="form-control" type="text" placeholder="Paste the Google Music Access code here" name="gmusicAuthCode" id="gmusicAuthCode"/>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="GMusic col-12">
+    <!-- div class="spinner-border text-primary"></div -->
+    <div class="GMusicRefreshAuth">
+      <button onClick="importPlaylist()" type="button" class="btn btn-info btn-lg">Import Playlist to Google Music</button>
+      <button onClick="deleteGMusicAuthCode()" type="button" class="btn btn-link">Need a new Google Music Auth Code?</button>
+    </div>
   </div>
 </div>
 {% endblock GMusic %}
