@@ -1,13 +1,9 @@
 from django.urls import path
 
 from . import views
+from playlist_generator.app.libraries.submit_gmusic_playlist import submitPlaylistToGMusic
 
 urlpatterns = [
-        path('basic', views.basicView),
-        path('library', views.libraryView),
-        path('libraryTemp', views.libraryTemplateView),
-        path('mix', views.mixView),
-        path('mixTemp', views.mixTemplateView),
-        path('recommended', views.recommendedView),
         path('', views.baseView),
+        path('submitPlaylist', submitPlaylistToGMusic),
         ]
