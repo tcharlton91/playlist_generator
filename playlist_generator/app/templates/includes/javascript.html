@@ -25,6 +25,18 @@
     function importPlaylist() {
         console.log("Hello:");
         console.log(Cookies.get('gmusicAuthCode'))
+        const userAction = async () => {
+        const response = await fetch('/submitPlaylist', {
+            method: 'POST',
+            body: {'gmusicAuthCode': gmusicAuthCode},
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+        const myJson = await response.json(); //extract JSON from the http response
+        console.log(myJson)
+        // do something with myJson
+}
     }
 
     function checkCookie($name)
