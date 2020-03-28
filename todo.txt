@@ -1,0 +1,2 @@
+- auth should work, not tested
+- need to return creds from auth and store in cookies

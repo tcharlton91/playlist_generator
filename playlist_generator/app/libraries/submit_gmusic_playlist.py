@@ -1,7 +1,6 @@
 import oauth2client
 import gmusicapi
-
-from gmusicapi import Musicmanager
+import random
 
 def submitPlaylistToGMusic(request):
 
@@ -10,7 +9,7 @@ def submitPlaylistToGMusic(request):
     mm = Musicmanager()
     
     try:
-        if not mm.login(auth_code):
+        if not mm.perform_oauth(auth_code) and mm.login():
             return 'Failed to login'
     except Exception as e:
         return e
@@ -18,16 +17,18 @@ def submitPlaylistToGMusic(request):
     return 'Logged in successfully'
     
 class _OAuthClient(gmusicapi.clients.shared._Base):
-    @classmethod
-    def perform_oauth(cls, auth_code):
+    
+    def perform_oauth(self, auth_code):
         # print(cls._session_class.oauth._asdict())
-        flow = oauth2client.client.OAuth2WebServerFlow(**cls._session_class.oauth._asdict())
+        flow = oauth2client.client.OAuth2WebServerFlow(**self._session_class.oauth._asdict())
         uri = flow.step1_get_authorize_url()
+        print(uri)
         creds = flow.step2_exchange(auth_code)
-        cls.creds = creds
+        self.creds = creds
         return creds
         
     def _oauth_login(self):
+        print(self.creds)
         if not self.session.login(self.creds):
             return False
         
@@ -44,11 +45,19 @@ class Musicmanager(_OAuthClient):
         return( self._oauth_login() and self._perform_upauth() )
         
     def _perform_upauth(self):
+
+        mac_address = "52:54:00:%02x:%02x:%02x" % (
+        random.randint(0, 255),
+        random.randint(0, 255),
+        random.randint(0, 255),
+        )
+
         try:
             self._make_call(gmusicapi.protocol.musicmanager.AuthenticateUploader,
-                            '00:11:22:33:44:55',
+                            mac_address,
                             'tc-music (gmusicapi-{0})'.format(gmusicapi.__version__))
-        except CallFailure:
+            print('Successfully performed upauth')
+        except gmusicapi.exceptions.CallFailure:
             self.session.logout()
             return False
         return True

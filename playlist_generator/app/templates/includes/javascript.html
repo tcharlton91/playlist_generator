@@ -7,11 +7,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 <script>
-    function setCookie(name, value, expiry) {
-        document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
-    }
-
-    function storeValues(form) {
+    function storeAuthCode(form) {
         Cookies.set('gmusicAuthCode', form.gmusicAuthCode.value, { expires: 30 })
         return true;
     }
@@ -23,7 +19,6 @@
     }
 
     function importPlaylist() {
-        console.log("Hello:");
         console.log(Cookies.get('gmusicAuthCode'))
         const userAction = async () => {
         const response = await fetch('/submitPlaylist', {
