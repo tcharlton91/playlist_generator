@@ -1,5 +1,7 @@
-from gmusicapi import Musicmanager
 import oauth2client
+import gmusicapi
+
+from gmusicapi import Musicmanager
 
 def submitPlaylistToGMusic(request):
 
