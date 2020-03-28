@@ -1,2 +1,3 @@
 - auth should work, not tested
-- need to return creds from auth and store in cookies
+- need to return creds from oauth and store in cookies
+- need to separate oauth from login, and login with creds if returning user
