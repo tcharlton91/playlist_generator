@@ -2,20 +2,54 @@ import oauth2client
 import gmusicapi
 import random
 
-def submitPlaylistToGMusic(request):
+from django.http import HttpResponse
 
-    auth_code = request.GET.get('gmusicauthcode')
+def perform_oauth_and_get_credentials(request):
+
+    response = HttpResponse()
 
     mm = Musicmanager()
-    
-    try:
-        if not mm.perform_oauth(auth_code) and mm.login():
-            return 'Failed to login'
-    except Exception as e:
-        return e
 
-    return 'Logged in successfully'
-    
+    try:
+        auth_code = request.GET.get('gmusicauthcode')
+        creds = mm.perform_oauth(auth_code)
+        if not creds:
+            response.write('Failed to perform oauth')
+
+        # possibly need response to be StreamingHttpResponse 
+        response.write(creds)
+    except Exception as e:
+        response.write(str(e))
+
+    print('Performed oauth successfully')
+
+    return response
+
+# this should possibly be an internal function, where you login with the creds,
+# and then get_playlist, or submit_songs etc
+def login(request):
+
+    response = HttpResponse()
+
+    creds = request.GET.get('gmusicCreds')
+    mm = Musicmanager(creds)
+
+    try:
+        if not mm.login():
+            response.write('Failed to login')
+    except Exception as e:
+        response.write(str(e))
+
+    response.write('Logged in successfully')
+
+    return response
+
+def import_playlist(request):
+
+    print(request.GET.get('gmusicCreds'))
+    print('-----')
+    print(request.GET.get('playlist'))
+
 class _OAuthClient(gmusicapi.clients.shared._Base):
     
     def perform_oauth(self, auth_code):
@@ -33,12 +67,11 @@ class _OAuthClient(gmusicapi.clients.shared._Base):
             return False
         
         return True
-        
-        
+            
 class Musicmanager(_OAuthClient):
     _session_class = gmusicapi.session.Musicmanager
-    def __init__(self):
-        self.creds = None
+    def __init__(self, creds=None):
+        self.creds = creds
         super(Musicmanager, self).__init__(self.__class__.__name__, True, True, True)
         
     def login(self):

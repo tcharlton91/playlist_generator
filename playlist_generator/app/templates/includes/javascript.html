@@ -9,6 +9,7 @@
 <script>
     function storeAuthCode(form) {
         Cookies.set('gmusicAuthCode', form.gmusicAuthCode.value, { expires: 30 })
+        performOauth()
         return true;
     }
 
@@ -18,20 +19,45 @@
         return true;
     }
 
-    function importPlaylist() {
+    function performOauth() {
         console.log(Cookies.get('gmusicAuthCode'))
+        // surely we need:
+        //var gmusicAuthCode = Cookies.get('gmusicAuthCode')
         const userAction = async () => {
-        const response = await fetch('/submitPlaylist', {
-            method: 'POST',
-            body: {'gmusicAuthCode': gmusicAuthCode},
-            headers: {
-            'Content-Type': 'application/json'
-            }
-        });
-        const myJson = await response.json(); //extract JSON from the http response
-        console.log(myJson)
-        // do something with myJson
-}
+            const response = await fetch('/performOauth', {
+                method: 'POST',
+                body: {'gmusicAuthCode': gmusicAuthCode},
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            });
+            const responseJson = await response.json(); //extract JSON from the http response
+            console.log(responseJson)
+            // do something with responseJson
+            // set creds in cookie
+            Cookies.set('gmusicCreds', responseJson )
+        }
+    }
+
+    function importPlaylist() {
+        console.log('Importing playlist')
+        console.log(Cookies.get('gmusicCreds'))
+        // var gmusicCreds = Cookies.get('gmusicCreds')
+
+        var playlist = document.getElementById('Playlist')
+        console.log(playlist)
+
+        const userAction = async () => {
+            const response = await fetch('/importPlaylist', {
+                method: 'POST',
+                body: {'gmusicCreds': gmusicCreds, 'playlist': Playlist},
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            });
+            const responseJson = await response.json(); //extract JSON from the http response
+            console.log(responseJson)
+        }
     }
 
     function checkCookie($name)
